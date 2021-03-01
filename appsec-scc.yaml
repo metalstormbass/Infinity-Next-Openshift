@@ -27,7 +27,7 @@ metadata:
     manager: cluster-version-operator
     operation: Update
     time: "2020-11-13T11:21:00Z"
-  name: waap-scc
+  name: appsec-scc
   uid: 07138f3d-0390-4be5-af58-ab92f214658d
 priority: 10
 readOnlyRootFilesystem: false
