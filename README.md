@@ -22,10 +22,10 @@ The following table lists the configurable parameters of this chart and their de
 | `mysvcname`                                           | K8s service name of your application(required)     |                          |
 | `mysvcport`                                           | K8s listening port of your service(required)     |                      |
 | `operatorServiceAccount`                                            | Openshift Service Account Name (required, please see instructions for permissions)| `cpappsec-sa`                                            | 
-| `cpappsecnginxingress.properties.imageRepo`                                             | Dockerhub location of the nginx image integrated with Check Point AppSec                     |                                              |
-| `cpappsecnginxingress.properties.imageTag`                                             | Image Version to use                    | `0.1.148370`                                              |
+| `cpappsecnginxingress.properties.imageRepo`                                             | Dockerhub location of the nginx image integrated with Check Point AppSec                     | `checkpoint/infinity-next-nginx-ingress`                                             |
+| `cpappsecnginxingress.properties.imageTag`                                             | Image Version to use                    | `latest`                                              |
 | `cpappsecnanoagent.properties.imageRepo`                                              | Dockerhub location of the Check Point nano agent image              | `checkpoint/infinity-next-nano-agent`                                           |
-| `cpappsecnanoagent.properties.imageTag`                                              | Version to use              | `0.1.148370`                                           |
+| `cpappsecnanoagent.properties.imageTag`                                              | Version to use              | `latest`                                           |
 | `TLS_CERTIFICATE_CRT`                                           | Default TLS Certificate               | `Certificate string`                         |
 | `TLS_CERTIFICATE_KEY`                                           | Default TLS Certificate Key               | `Certificate Key string`                         | 
 
