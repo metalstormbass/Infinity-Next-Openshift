@@ -11,7 +11,7 @@ Helm charts provide the ability to deploy a collection of kubernetes services an
 
 By default, Openshift uses HAProxy as the ingress controller. In this Openshift specific Helm Chart, a parallel Nginx based ingress controller is deployed. This is done to ensure traffic is being inspected by the AppSec nano agent. This Helm Chart blocks the default HAProxy in order to prevent bypassing the protection. 
 
-![](images/infinitynext.png)
+![](images/infinity_next.png)
 
 The following table lists the configurable parameters of this chart and their default values.
 
