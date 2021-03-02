@@ -1,11 +1,18 @@
 
 # Helm Chart for Check Point CloudGuard AppSec on Openshift
 ## Overview
+![](images/cspm2.png)
+
 Check Point CloudGuard AppSec delivers access control and advanced threat prevention including web and api protection for mission-critical assets.  Check Point CloudGuard AppSec delivers advanced, multi-layered threat prevention to protect customer assets in Kubernetes clusters from web attacks and sophisticated threats based on Contextual AI.
 
-Helm charts provide the ability to deploy a collection of kubernetes services and containers with a single command. This helm chart deploys an Nginx-based (1.19) ingress controller integrated with the Check Point container images that include and Nginx Reverse Proxy container integrated with the Check Point CloudGuard AppSec nano agent container. It is designed to run in front of your existing Kubernetes Application. If you want to integrate the Check Point CloudGuard AppSec nano agent with an ingress controller other than nginx, follow the instructions in the CloudGuard AppSec installation guide. Another option would be to download the helm chart and modify the parameters to match your Kubernetes/Application environment.
+Helm charts provide the ability to deploy a collection of kubernetes services and containers with a single command. This helm chart deploys an Nginx-based (1.19) ingress controller integrated with the Check Point container images that include and Nginx Reverse Proxy container integrated with the Check Point CloudGuard AppSec nano agent container. It is designed to run in front of your existing Openshift Application. If you want to integrate the Check Point CloudGuard AppSec nano agent with an ingress controller other than Nginx, follow the instructions in the CloudGuard AppSec installation guide. Another option would be to download the helm chart and modify the parameters to match your Openshift/Application environment.
 
 ## Architecture
+
+By default, Openshift uses HAProxy as the ingress controller. In this Openshift specific Helm Chart, a parallel Nginx based ingress controller is deployed. This is done to ensure traffic is being inspected by the AppSec nano agent. This Helm Chart blocks the default HAProxy in order to prevent bypassing the protection. 
+
+![](images/infinitynext.png)
+
 The following table lists the configurable parameters of this chart and their default values.
 
 | Parameter                                                  | Description                                                     | Default                                          |
@@ -39,6 +46,12 @@ The following table lists the configurable parameters of this chart and their de
 *   _templates/ingress.yaml_ \- specification for the ingress settings for the application that point to your inbound service.
 *   _templates/secrets.yaml_ \- secrets file.
 *   _templates/service.yaml_ \- specifications for the ingress controller, e.g. LoadBalancer listening on port 80, forwarding to nodePort 30080 of the application 
+
+
+## Preparing the application
+For this implmentation of AppSec to work seamlessly, the deployments service needs be exposed with the <b>"ClusterIP"</b> type.
+
+![](images/app_prep.png)
 
 ## Installing Infinity Next
 First, start by cloning this repository.
