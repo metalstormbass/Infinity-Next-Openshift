@@ -34,7 +34,7 @@ spec:
       containers:
       - args:
         - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
-        - -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
+        - -default-server-tls-secret=$(POD_NAMESPACE)/cpappsec-secret
         env:
         - name: POD_NAMESPACE
           valueFrom:
