@@ -64,7 +64,7 @@ Once the application has been configured in the CloudGuard Portal, retrieve the 
 
 In order to run this on openshift, first create a service account:
 ```bash 
-oc create sa <service_account_name>
+oc create sa cpappsec-sa
 ```
 Create the the SCC required to run the containers:
 ```bash
@@ -72,7 +72,7 @@ oc create -f appsec-scc.yaml
 ```
 Apply the SCC to the service account:
 ```bash
-oc adm policy add-scc-to-user appsec-scc -z <service_account_name>
+oc adm policy add-scc-to-user appsec-scc -z cpappsec-sa
 ```
 
 ### Installing the Helm Chart
@@ -82,9 +82,11 @@ $ helm install <release_name> cpappsec-0.1.2.tgz --namespace="{your namespace}" 
 ```
 These are additional optional flags:
 ```bash
+--set operatorServiceAccount.name="{different service account name}"
 --set cpappsecnginxingress.properties.imageRepo="{a different repo}"
 --set cpappsecnginxingress.properties.imageTag="{a specific tag/version}"
 --set cpappsecnanoagent.properties.imageRepo="{a different repo}"
+--set cpappsecnanoagent.properties.imageTag="{a specific tag/version}"
 --set cpappsecnanoagent.properties.imageTag="{a specific tag/version}"
 ```
 ## Uninstalling the Chart
