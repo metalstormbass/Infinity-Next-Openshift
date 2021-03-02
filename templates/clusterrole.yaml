@@ -141,7 +141,7 @@ metadata:
   name: waap-role-binding
 subjects:
 - kind: ServiceAccount
-  name: {{ .Values.ocSaName }}
+  name: {{.Values.operatorServiceAccount.name}}
   namespace: {{.Release.Namespace}}
 roleRef:
   kind: ClusterRole
