@@ -78,7 +78,7 @@ oc adm policy add-scc-to-user appsec-scc -z <service_account_name>
 ### Installing the Helm Chart
 
 ```bash
-$ helm install <release_name> cpappsec-0.1.2.tgz --namespace="{your namespace}" --set nanoToken="{your AppSec token string here}" --set appURL="{your appURL}" --set mysvcname="{your app Service Name}" --set mysvcport="{your app service port}" --set operatorServiceAccount="<service_account_name>" 
+$ helm install <release_name> cpappsec-0.1.2.tgz --namespace="{your namespace}" --set nanoToken="{your AppSec token string here}" --set appURL="{your appURL}" --set mysvcname="{your app Service Name}" --set mysvcport="{your app service port}" --set operatorServiceAccount.name="<service_account_name>" 
 ```
 These are additional optional flags:
 ```bash
