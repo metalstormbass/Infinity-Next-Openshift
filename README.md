@@ -21,7 +21,7 @@ The following table lists the configurable parameters of this chart and their de
 | `appURL`                                           | URL of the application (must resolve to cluster IP address after deployment,required)     |                                           |
 | `mysvcname`                                           | K8s service name of your application(required)     |                          |
 | `mysvcport`                                           | K8s listening port of your service(required)     |                      |
-| `ocSaName`                                            | Openshift Service Account Name (required, please see instructions for permissions)|                                              | 
+| `operatorServiceAccount`                                            | Openshift Service Account Name (required, please see instructions for permissions)|                                              | 
 | `cpappsecnginxingress.properties.imageRepo`                                             | Dockerhub location of the nginx image integrated with Check Point AppSec                     |                                              |
 | `cpappsecnginxingress.properties.imageTag`                                             | Image Version to use                    | `0.1.148370`                                              |
 | `cpappsecnanoagent.properties.imageRepo`                                              | Dockerhub location of the Check Point nano agent image              | `checkpoint/infinity-next-nano-agent`                                           |
@@ -78,7 +78,7 @@ oc adm policy add-scc-to-user appsec-scc -z <service_account_name>
 ### Installing the Helm Chart
 
 ```bash
-$ helm install <release_name> cpappsec-0.1.2.tgz --namespace="{your namespace}" --set nanoToken="{your AppSec token string here}" --set appURL="{your appURL}" --set mysvcname="{your app Service Name}" --set mysvcport="{your app service port}" --set ocSaName="<service_account_name>" 
+$ helm install <release_name> cpappsec-0.1.2.tgz --namespace="{your namespace}" --set nanoToken="{your AppSec token string here}" --set appURL="{your appURL}" --set mysvcname="{your app Service Name}" --set mysvcport="{your app service port}" --set operatorServiceAccount="<service_account_name>" 
 ```
 These are additional optional flags:
 ```bash
