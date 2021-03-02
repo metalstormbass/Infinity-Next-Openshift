@@ -51,7 +51,7 @@ The following table lists the configurable parameters of this chart and their de
 ## Preparing the application
 For this implmentation of AppSec to work seamlessly, the deployments service needs be exposed with the <b>"ClusterIP"</b> type.
 
-![](images/app_prep.png)
+![](images/appprep.png)
 
 ## Installing Infinity Next
 First, start by cloning this repository.
